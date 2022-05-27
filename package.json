@@ -4,8 +4,8 @@
   "description": "It is a learning platform that provides multiple courses and training content",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,7 +20,7 @@
   "homepage": "https://github.com/swathipalaparthi/training-management-system-backend#readme",
   "dependencies": {
     "express": "^4.18.1",
-    "pg": "^8.7.3"
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
