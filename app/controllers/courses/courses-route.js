@@ -5,4 +5,5 @@ export const coursesRouter = new express.Router();
 
 coursesRouter
   .get("/all", getAllCourses)
-  .get("/assigned/:empId", getAssignedCourses);
+  .get("/assigned/:empId", getAssignedCourses)
+  .post("/add-course", addCourse);

@@ -1,3 +1,4 @@
+import { response } from "express";
 import db from "../../models/index.js";
 
 const courses = db.course;
@@ -55,5 +56,29 @@ export const getAssignedCourses = (req, res) => {
       .catch((error) => res.status(400).send({ success: false, data: error }));
   } catch (err) {
     res.status(400).send({ status: false, data: err });
+  }
+};
+
+export const addCourse = (req, res) => {
+  try {
+    const { body } = req.body;
+
+    courses
+      .create({
+        courseName: body.courseName,
+        description: body.description,
+        courseImg: body.courseName ? body.courseName : null,
+        courseLevel: body.courseLevel,
+      })
+      .then((response) => {
+        return res
+          .status(200)
+          .send({ success: true, data: "Course added successfully" });
+      })
+      .catch((error) => {
+        return res.status(400).send({ success: false, data: error });
+      });
+  } catch (err) {
+    return res.status(500).send({ status: false, error: err });
   }
 };
