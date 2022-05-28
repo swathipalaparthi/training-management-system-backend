@@ -2,6 +2,7 @@ import express from "express";
 import { coursesRouter } from "../app/controllers/courses/courses-route.js";
 import employeeRouter from "../app/controllers/employee/employee-route.js";
 import eventsRouter from "../app/controllers/events/events-route.js";
+import { topicRouter } from "../app/controllers/topic/topic.route.js";
 
 export const route = new express.Router();
 
@@ -9,3 +10,4 @@ export const route = new express.Router();
 route.use("/employee", employeeRouter);
 route.use("/events", eventsRouter);
 route.use("/courses", coursesRouter);
+route.use("/topic", topicRouter);
