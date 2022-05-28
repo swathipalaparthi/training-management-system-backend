@@ -34,6 +34,34 @@ export const login = (req, res) => {
   }
 };
 
+export const signUp = (req, res) => {
+  try {
+    const body = req.body;
+
+    return employee
+      .create({
+        ...body,
+      })
+      .then((response) => {
+        if (!response) {
+          return res.status(400).send({
+            status: false,
+            data: "Sign up is unsuccessfull",
+          });
+        }
+        return res.status(200).send({ status: true, data: response });
+      })
+      .catch((error) => {
+        res.status(400).send({
+          status: false,
+          data: error,
+        });
+      });
+  } catch (err) {
+    res.status(400).send({ status: false, data: err });
+  }
+};
+
 export const getAllUsers = (req, res) => {
   return employee
     .findAll({
