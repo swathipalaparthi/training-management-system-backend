@@ -8,6 +8,7 @@ import Sequelize from "sequelize";
 import { employee } from "./employee.models.js";
 import { course } from "./courses.models.js";
 import { user_courses } from "./user_courses.models.js";
+import { events } from "./events.models.js";
 
 export const sequelize = new Sequelize(
   dbConfig.DB,
@@ -34,6 +35,7 @@ db.sequelize = sequelize;
 
 db.employee = employee(sequelize, Sequelize);
 db.course = course(sequelize, Sequelize);
+db.events = events(sequelize, Sequelize);
 db.userCourse = user_courses(sequelize, Sequelize, db.employee, db.course);
 
 export default db;
